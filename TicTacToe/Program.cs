@@ -89,6 +89,8 @@ namespace TicTacToe
                 do
             {
                 Console.Write("\nPLayer {0}: Choose your place you want to cross or zero: " ,player);
+
+                // Handling errors with incorrect inputs
                 try
                     {
                         input = Convert.ToInt32(Console.ReadLine());
@@ -98,6 +100,8 @@ namespace TicTacToe
                     {
                         Console.WriteLine("Enter correct field!!!!");
                     }
+
+                // Handling errors with input for fields that are already filled 
 
                     if ((input == 1) && (playField[0, 0] == '1'))
                         isInputCorrect = true;
@@ -122,25 +126,13 @@ namespace TicTacToe
                         Console.WriteLine("\n Incorrect input! Please use another field!");
                         isInputCorrect = false;
                     }
-
-
-
-
-
-
+                    
                 } while (!isInputCorrect);
 
 
             } while (true);
-
-            
-
-            
-
-
-
-        }
-
+}
+        // Resetting Playing Field
         public static void ResetField()
         {
             char[,] playFieldInitial =
@@ -179,7 +171,7 @@ namespace TicTacToe
 
 
         }
-
+        // Setting Zero or Cross for Player 1 and Player 2
         static void EnterCharacter( int player , int input)
         {
             char playerSign = ' ';
@@ -202,11 +194,6 @@ namespace TicTacToe
 
             }
 
-
-
-
         }
-
-
     }
 }
